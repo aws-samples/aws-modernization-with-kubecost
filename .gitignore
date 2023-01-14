@@ -1,0 +1,4 @@
+.DS_Store
+*.lock
+*.yaml
+*.sh
