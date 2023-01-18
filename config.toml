@@ -6,7 +6,7 @@ title = "AWS Kubecost Workshop"
 theme = "hugo-theme-learn"
 metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= "false"
-uglyurls = false
+uglyurls = "true"
 enableEmoji = true
 
 [params]
