@@ -53,7 +53,7 @@ eksctl utils associate-iam-oidc-provider \
 Learn more about [IAM Roles for Service Accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) in the Amazon EKS documentation.
 {{% /notice %}}
 
-#### Create an IAM policy called
+#### Create an IAM policy
 
 Create a policy called **AWSLoadBalancerControllerIAMPolicy**
 
