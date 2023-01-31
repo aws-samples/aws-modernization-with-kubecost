@@ -9,7 +9,7 @@ In order to delete the resources created for this EKS cluster, run the following
 Delete the cluster:
 
 ```bash
-eksctl delete cluster --name=kubecost-workshop-eksctl
+eksctl delete cluster --name=$CLUSTER_NAME
 ```
 
 {{% notice tip %}}

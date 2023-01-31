@@ -16,7 +16,7 @@ The [Amazon Elastic Block Store (Amazon EBS) Container Storage Interface (CSI) d
 eksctl create iamserviceaccount \
     --name ebs-csi-controller-sa \
     --namespace kube-system \
-    --cluster kubecost-workshop-eksctl \
+    --cluster ${CLUSTER_NAME} \
     --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
     --override-existing-serviceaccounts \
     --approve \

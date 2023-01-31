@@ -13,7 +13,13 @@ Learn more about [Application load balancing on Amazon EKS](https://docs.aws.ama
 
 #### Prerequisites
 
-We will verify if the AWS Load Balancer Controller version has been set
+We will first set our cluster name in an environment variable:
+
+```bash
+export CLUSTER_NAME=$(eksctl get clusters --region ${AWS_REGION} -o json | jq -r .[0].Name)
+```
+
+We will then verify if the AWS Load Balancer Controller version has been set
 
 ```bash
 if [ ! -x ${LBC_VERSION} ]
@@ -25,7 +31,7 @@ fi
 ```
 
 {{% notice info %}}
-If the result is <span style="color:red">${LBC_VERSION} has NOT been set.</span>, click [here](/2_setup/24_k8stools#set-the-aws-load-balancer-controller-version) for the instructions.
+If the result is <span style="color:red">${LBC_VERSION} has NOT been set.</span>, click [here](/2_setup/24_clistools.html#set-the-aws-load-balancer-controller-version) for the instructions.
 {{% /notice %}}
 
 We will use **Helm** to install the ALB Ingress Controller.
@@ -45,7 +51,7 @@ If `Helm` is not found, click [installing Helm CLI](/2_setup/24_k8stools) for in
 ```bash
 eksctl utils associate-iam-oidc-provider \
     --region ${AWS_REGION} \
-    --cluster kubecost-workshop-eksctl \
+    --cluster ${CLUSTER_NAME} \
     --approve
 ```
 
@@ -68,7 +74,7 @@ aws iam create-policy \
 
 ```bash
 eksctl create iamserviceaccount \
-  --cluster kubecost-workshop-eksctl \
+  --cluster ${CLUSTER_NAME} \
   --namespace kube-system \
   --name aws-load-balancer-controller \
   --attach-policy-arn arn:aws:iam::${ACCOUNT_ID}:policy/AWSLoadBalancerControllerIAMPolicy \
@@ -94,7 +100,7 @@ helm repo add eks https://aws.github.io/eks-charts
 helm upgrade -i aws-load-balancer-controller \
     eks/aws-load-balancer-controller \
     -n kube-system \
-    --set clusterName=kubecost-workshop-eksctl \
+    --set clusterName=${CLUSTER_NAME} \
     --set serviceAccount.create=false \
     --set serviceAccount.name=aws-load-balancer-controller \
     --set image.tag="${LBC_VERSION}" \
