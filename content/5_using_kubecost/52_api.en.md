@@ -4,16 +4,16 @@ chapter: false
 weight : 52
 ---
 
-# Overview
+### Overview
 
 Kubecost offers a number of API endpoints to query cost metrics data. The Kubecost API is especially useful in cases where you want to integrate Kubecost data with your existing services, trigger alerts, or set up automation pipelines.
 
-# Prerequisites
+### Prerequisites
 
 - You have completed Modules 1 & 2 of this workshop
 - You have an API client installed, such as [Insomnia](https://insomnia.rest/), [Postman](https://www.postman.com/), or a CLI utility such as [HTTPie](https://httpie.io/cli) or [cURL](https://curl.se/).
 
-# Step 1: Enable access to the Kubecost API
+### Step 1: Enable access to the Kubecost API
 
 The Kubecost API can be queried using the `<KUBECOST_IP>:9090/model/` prefix. In order to do this, you'll either need to expose Kubecost locally, or via Amazon Loadbalancer Controller (ALB). Full steps for both are described in Module 2 of this lab.
 
@@ -24,11 +24,11 @@ kubectl run curlpod --image=curlimages/curl -i --tty -- sh
 ENDPOINT="http://kubecost-cost-analyzer.kubecost.svc.cluster.local:9090"
 ```
 
-# Step 2: Explore the data
+### Step 2: Explore the data
 
 Here are some examples of data available in the Free Tier of the API:
 
-## [`/allocation`](https://github.com/kubecost/docs/blob/main/allocation.md)
+#### [`/allocation`](https://github.com/kubecost/docs/blob/main/allocation.md)
 
 The Kubecost Allocation API is used by the Kubecost Allocation frontend and retrieves cost allocation information for any Kubernetes concept, e.g. cost by namespace, label, deployment, service, and more. This API is directly integrated with the Kubecost ETL caching layer and CSV pipeline so it can scale to large clusters.
 
@@ -56,7 +56,7 @@ curl $ENDPOINT/model/allocation \
   -G
 ```
 
-## [`/assets`](https://github.com/kubecost/docs/blob/main/assets.md)
+#### [`/assets`](https://github.com/kubecost/docs/blob/main/assets.md)
 
 Assets API retrieves the backing cost data broken down by individual assets, e.g. node, disk, etc, and provides various aggregations of this data. Optionally provides the ability to integrate with external cloud assets.
 

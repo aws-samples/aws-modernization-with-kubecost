@@ -4,7 +4,7 @@ chapter: true
 weight : 42
 ---
 
-# Overview
+### Overview
 
 In this module you can learn how to expose Kubecost for external access using AWS Load Balancer Controller (ALB). The AWS Load Balancer Controller manages AWS Elastic Load Balancers for a Kubernetes cluster. The controller provisions the following resources:
 
@@ -14,11 +14,11 @@ In this module you can learn how to expose Kubecost for external access using AW
 
 In this module, the Kubecost is exposed via a Kubernetes ingress and an AWS Application Load Balancer.
 
-# Reference Architecture diagram:
+### Reference Architecture diagram:
 
 ![kubecost-aws-alb](/images/kubecost-aws-alb.png)
 
-# Instructions
+### Instructions
 
 On the same Amazon EKS cluster that you installed Kubecost, run the following command (copy & paste the entire code block) to create an Ingress object:
 
