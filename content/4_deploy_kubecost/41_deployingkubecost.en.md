@@ -3,15 +3,15 @@ title : "Deploying Kubecost on an Amazon EKS cluster"
 weight : 41
 ---
 
-# Overview
+### Overview
 Kubecost provides real-time cost visibility and insights for teams using Kubernetes, helping you continuously monitor the cost of the container workloads. In this section, you will learn how to deploy Kubecost on Amazon EKS cluster in few minutes with bundled Prometheus running locally.
-# Reference Architecture diagram:
+### Reference Architecture diagram:
 
 ![kubecost-eks](/images/AWS-EKS-cost-monitoring-architecture.png)
 
-# Instructions
+### Instructions
 
-## Step 1: Install Kubecost on your Amazon EKS cluster
+#### Step 1: Install Kubecost on your Amazon EKS cluster
 
 In your environment, run the following command from your terminal to install Kubecost on your existing Amazon EKS cluster:
 
@@ -41,7 +41,7 @@ kubecost-kube-state-metrics-99bb8c55b-454x6   1/1     Running   0          3m5s
 kubecost-prometheus-server-f99987f55-q9b8d    1/1     Running   0          3m5s
 ```
 
-## Step 2: Generate Kubecost dashboard endpoint
+#### Step 2: Generate Kubecost dashboard endpoint
 
 Run the following command to enable port-forwarding to expose the Kubecost dashboard to your workspace:
 
@@ -49,7 +49,7 @@ Run the following command to enable port-forwarding to expose the Kubecost dashb
 kubectl port-forward --namespace kubecost deployment/kubecost-cost-analyzer 8080:9090
 ```
 
-## Step 3: Access cost monitoring dashboard
+#### Step 3: Access cost monitoring dashboard
 
 On your workspace console, navigate to `Preview -> Preview running application`. New windows appears on your workspace allowing you to access the Kubecost dashboard as in the following example screenshot:
 

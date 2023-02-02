@@ -67,13 +67,23 @@ url = "https://eksworkshop.com/"
 weight = 21
 
 [[menu.shortcuts]]
-name = "<i class='fas fa-chalkboard-teacher'></i> ECS Workshop"
-url = "https://ecsworkshop.com/"
-weight = 22
+name = "<i class='fas fa-chalkboard-teacher'></i> Learn more about Kubecost and AWS collaboration"
+url = "https://www.kubecost.com/aws-eks-cost-monitoring/"
+weight = 23
 
 [[menu.shortcuts]]
-name = "<i class='fas fa-chalkboard-teacher'></i> App Mesh Workshop"
-url = "https://www.appmeshworkshop.com/"
+name = "<i class='fas fa-chalkboard-teacher'></i> Kubecost documentation for Amazon EKS"
+url = "https://docs.kubecost.com/install-and-configure/install/provider-installations/aws-eks-cost-monitoring"
+weight = 23
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-chalkboard-teacher'></i> AWS Cloud billing integration"
+url = "https://docs.kubecost.com/install-and-configure/install/cloud-integration/aws-cloud-integrations"
+weight = 23
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-chalkboard-teacher'></i> Containers from the Couch episode - EKS Cost Monitoring with Kubecost"
+url = "https://www.youtube.com/watch?v=-mDPV1huzBY"
 weight = 23
 
 [markup]
