@@ -16,7 +16,7 @@ Kubecost provides real-time cost visibility and insights for teams using Kuberne
 In your environment, run the following command from your terminal to install Kubecost on your existing Amazon EKS cluster:
 
 ```bash
-export VERSION="1.99.0"
+export VERSION="1.103.2"
 helm upgrade -i kubecost \
 oci://public.ecr.aws/kubecost/cost-analyzer --version="$VERSION" \
 --namespace kubecost --create-namespace \

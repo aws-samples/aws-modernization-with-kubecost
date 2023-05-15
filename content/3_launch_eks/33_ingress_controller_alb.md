@@ -30,9 +30,13 @@ if [ ! -x ${LBC_VERSION} ]
 fi
 ```
 
-{{% notice info %}}
-If the result is <span style="color:red">${LBC_VERSION} has NOT been set.</span>, click [here](/2_setup/24_clistools.html#set-the-aws-load-balancer-controller-version) for the instructions.
-{{% /notice %}}
+If the result is <span style="color:red">${LBC_VERSION} has NOT been set.</span>, click [here](/2_setup/24_clistools.html#set-the-aws-load-balancer-controller-version) for the instructions or run the following command:
+
+```bash
+echo 'export LBC_VERSION="v2.4.1"' >>  ~/.bash_profile
+echo 'export LBC_CHART_VERSION="1.4.1"' >>  ~/.bash_profile
+.  ~/.bash_profile
+```
 
 We will use **Helm** to install the ALB Ingress Controller.
 
