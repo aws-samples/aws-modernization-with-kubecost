@@ -15,21 +15,9 @@ In the collaboration with Amazon Web Services (AWS), [Kubecost](https://www.kube
 
 #### Create Amazon Managed for Prometheus (AMP) instance:
 
-Run the following command to get the information of your current EKS cluster:
+Run the following command to create new a AMP intance
 
 ```bash
-kubectl config current-context
-```
-The example output should be in this format:
-
-```bash
-arn:aws:eks:${AWS_REGION}:${YOUR_AWS_ACCOUNT_ID}:cluster/${YOUR_CLUSTER_NAME}
-```
-
-Next, run the following command to create new a AMP intance
-
-```bash
-export AWS_REGION=<YOUR_AWS_REGION>
 aws amp create-workspace --alias kubecost-amp --region $AWS_REGION
 ```
 
@@ -40,16 +28,13 @@ export AMP_WORKSPACE_ID=$(aws amp list-workspaces --region ${AWS_REGION} --outpu
 echo $AMP_WORKSPACE_ID
 ```
 
-Take note of AMP_WORKSPACE_ID for using later
-
 #### Set environment variables for integrating Kubecost with AMP
 
 Run the following command to set environment variables for integrating Kubecost with AMP
 
 ```bash
-export YOUR_CLUSTER_NAME=<YOUR_EKS_CLUSTER_NAME>
-export YOUR_AWS_ACCOUNT_ID=<YOUR_AWS_ACCOUNT_ID>
-export REMOTEWRITEURL="https://aps-workspaces.us-west-2.amazonaws.com/workspaces/${AMP_WORKSPACE_ID}/api/v1/remote_write"
+export CLUSTER_NAME=$(eksctl get clusters --region ${AWS_REGION} -o json | jq -r .[0].Name)
+export REMOTEWRITEURL="https://aps-workspaces.${AWS_REGION}.amazonaws.com/workspaces/${AMP_WORKSPACE_ID}/api/v1/remote_write"
 export QUERYURL="http://localhost:8005/workspaces/${AMP_WORKSPACE_ID}"
 ```
 
@@ -63,7 +48,7 @@ These following commands help to automate the following tasks:
 eksctl create iamserviceaccount \
     --name kubecost-cost-analyzer \
     --namespace kubecost \
-    --cluster ${YOUR_CLUSTER_NAME} --region ${AWS_REGION} \
+    --cluster ${CLUSTER_NAME} --region ${AWS_REGION} \
     --attach-policy-arn arn:aws:iam::aws:policy/AmazonPrometheusQueryAccess \
     --attach-policy-arn arn:aws:iam::aws:policy/AmazonPrometheusRemoteWriteAccess \
     --override-existing-serviceaccounts \
@@ -74,7 +59,7 @@ eksctl create iamserviceaccount \
 eksctl create iamserviceaccount \
     --name kubecost-prometheus-server \
     --namespace kubecost \
-    --cluster ${YOUR_CLUSTER_NAME} --region ${AWS_REGION} \
+    --cluster ${CLUSTER_NAME} --region ${AWS_REGION} \
     --attach-policy-arn arn:aws:iam::aws:policy/AmazonPrometheusQueryAccess \
     --attach-policy-arn arn:aws:iam::aws:policy/AmazonPrometheusRemoteWriteAccess \
     --override-existing-serviceaccounts \
@@ -91,7 +76,7 @@ You can run this command to update Kubecost Helm release to use your AMP workspa
 
 ```bash
 helm upgrade -i kubecost \
-oci://public.ecr.aws/kubecost/cost-analyzer --version 1.97.0 \
+oci://public.ecr.aws/kubecost/cost-analyzer --version="$VERSION" \
 --namespace kubecost --create-namespace \
 -f https://tinyurl.com/kubecost-amazon-eks \
 -f https://tinyurl.com/kubecost-amp \
