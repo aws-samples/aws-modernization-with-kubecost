@@ -52,6 +52,6 @@ This view can be customized based on given requirements. Some of the most useful
 
 ![allocation-settings](/images/kubecost-report-settings.png)
 
-Within the UI, note that you can click the blue link to open a detailed view of that resources, or click the row to drill into that resource.  This give you the ability to drill down to the continer level of a given resource to view CPU, RAM, Efficiency and Savings for a given resource.  When you get to the container level you can see where Kubecost starts making recommendations on Breakdown on container resources that can lead to savings.
+Within the UI, note that you can click the three dots on the far right of the row and select "inspect" to open a detailed view of that resources, or click the row to drill into that resource.  This give you the ability to drill down to the continer level of a given resource to view CPU, RAM, Efficiency and Savings for a given resource.  When you get to the container level you can see where Kubecost starts making recommendations on Breakdown on container resources that can lead to savings.
 
 ![allocation-drill-in](/images/kubecost-drill-in.png)
