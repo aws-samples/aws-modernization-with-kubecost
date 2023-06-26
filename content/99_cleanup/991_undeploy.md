@@ -1,10 +1,10 @@
 ---
-title: "Uninstall the applications"
+title: "Uninstallation"
 chapter: false
 weight: 991
 ---
 
-Uninstall the components we have installed:
+Remove the components installed during this workshop:
 
 1. Kubecost
 
