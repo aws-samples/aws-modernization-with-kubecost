@@ -1,7 +1,7 @@
 ---
-title : "Expose Kubecost with AWS Load Balancer Controller"
-chapter: true
-weight : 42
+title: "Expose Kubecost with AWS Load Balancer Controller"
+chapter: false
+weight: 42
 ---
 
 ### Overview

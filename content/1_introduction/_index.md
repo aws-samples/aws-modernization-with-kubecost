@@ -1,7 +1,7 @@
 ---
-title : "Introduction"
+title: "Introduction"
 chapter: true
-weight : 10
+weight: 10
 ---
 # What is Kubecost?
 

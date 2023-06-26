@@ -1,7 +1,7 @@
 ---
 title: "Uninstallation"
 chapter: false
-weight: 991
+weight: 1
 ---
 
 Remove the components installed during this workshop:

@@ -1,7 +1,7 @@
 ---
-title : "Use Cases for Kubecost"
-chapter: true
-weight : 31
+title: "Use Cases for Kubecost"
+chapter: false
+weight: 51
 ---
 
 ### Overview

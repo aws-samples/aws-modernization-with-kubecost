@@ -1,7 +1,7 @@
 ---
-title : "Integrating Kubecost with AWS Managed Prometheus (AMP)"
+title: "Integrating Kubecost with AWS Managed Prometheus (AMP)"
 chapter: false
-weight : 53
+weight: 53
 ---
 ### Overview
 

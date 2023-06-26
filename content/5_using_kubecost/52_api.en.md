@@ -1,7 +1,7 @@
 ---
-title : "The Kubecost API"
+title: "The Kubecost API"
 chapter: false
-weight : 52
+weight: 52
 ---
 
 ### Overview

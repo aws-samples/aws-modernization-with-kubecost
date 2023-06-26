@@ -1,6 +1,7 @@
 ---
-title : "Deploying Kubecost on an Amazon EKS cluster"
-weight : 41
+title: "Deploying Kubecost on an Amazon EKS cluster"
+chapter: false
+weight: 41
 ---
 
 ### Overview
