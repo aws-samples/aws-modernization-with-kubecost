@@ -54,7 +54,7 @@ weight = 10
 [[menu.shortcuts]]
 name = "<i class='fas fa-tools'></i> AWS Builders Library"
 url = "https://aws.amazon.com/builders-library/"
-weight = 11
+weight = 15
 
 [[menu.shortcuts]]
 name = "<i class='far fa-lightbulb'></i> Modernization with AWS"
@@ -64,27 +64,33 @@ weight = 20
 [[menu.shortcuts]]
 name = "<i class='fas fa-chalkboard-teacher'></i> EKS Workshop"
 url = "https://eksworkshop.com/"
-weight = 21
-
-[[menu.shortcuts]]
-name = "<i class='fas fa-chalkboard-teacher'></i> Learn more about Kubecost and AWS collaboration"
-url = "https://www.kubecost.com/aws-eks-cost-monitoring/"
-weight = 23
-
-[[menu.shortcuts]]
-name = "<i class='fas fa-chalkboard-teacher'></i> Kubecost documentation for Amazon EKS"
-url = "https://docs.kubecost.com/install-and-configure/install/provider-installations/aws-eks-cost-monitoring"
-weight = 23
+weight = 25
 
 [[menu.shortcuts]]
 name = "<i class='fas fa-chalkboard-teacher'></i> AWS Cloud billing integration"
 url = "https://docs.kubecost.com/install-and-configure/install/cloud-integration/aws-cloud-integrations"
-weight = 23
+weight = 26
 
 [[menu.shortcuts]]
 name = "<i class='fas fa-chalkboard-teacher'></i> Containers from the Couch episode - EKS Cost Monitoring with Kubecost"
 url = "https://www.youtube.com/watch?v=-mDPV1huzBY"
-weight = 23
+weight = 27
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-chalkboard-teacher'></i> Kubecost documentation for Amazon EKS"
+url = "https://docs.kubecost.com/install-and-configure/install/provider-installations/aws-eks-cost-monitoring"
+weight = 28
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-chalkboard-teacher'></i> Learn more about Kubecost and AWS collaboration"
+url = "https://www.kubecost.com/aws-eks-cost-monitoring/"
+weight = 29
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-tools'></i> Kyverno policies for Kubecost"
+url = "https://kyverno.io/policies/?policytypes=Kubecost"
+weight = 30
+
 
 [markup]
   defaultMarkdownHandler = "goldmark"
