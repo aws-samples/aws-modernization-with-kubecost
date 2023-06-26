@@ -8,4 +8,4 @@ weight: 50
 
 ## Learning Objectives
 
-In this section, you will learn how to use Kubecost once it is deployed on a cluster.
+In this section, you will learn how to use Kubecost once it is deployed in a cluster.
