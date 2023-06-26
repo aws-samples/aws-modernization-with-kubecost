@@ -25,16 +25,16 @@ OpenCost API:
 
 # How is OpenCost different from Kubecost?
 
-|  | **OpenCost** | **Kubecost Free** |
-|---|:---:|:---:|
-| Description | An open source tool for monitoring cost, resource allocation, and utilization data in Kubernetes | Feature-rich, always-free, Kubecost uses an Open Core model that builds on OpenCost with greater scaling and cost savings opportunities |
-| Best for | Small clusters, simple API-based reporting needs | Larger clusters / Detailed UI |
-| Price | Free | Free |
-| Clusters supported | Unlimited (best for smaller node-counts) | Single cluster-at-a-time view |
-| Number of nodes | Unlimited | Unlimited |
-| Deployment | Deployed as a pod. Prometheus and kube-state-metrics dependencies  need to be managed separately. | Deployed using Helm. Turn-key solution with Prometheus and Grafana. |
-| Metric retention | Limited by Prometheus environment | 15 days |
-| Support | Built and supported by community users. Interact with our vibrant community to quickly and easily learn, build, and deploy OpenCost for Kubernetes cost monitoring! | Ticket-based support dedicated to resolving issues quickly and efficiently. Available 9:00 AM - 8:00 PM EST |
+|                    |                                                                             **OpenCost**                                                                            |                                                            **Kubecost Free**                                                            |
+|--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------:|
+| Description        |                                   An open source tool for monitoring cost, resource allocation, and utilization data in Kubernetes                                  | Feature-rich, always-free, Kubecost uses an Open Core model that builds on OpenCost with greater scaling and cost savings opportunities |
+| Best for           |                                                           Small clusters, simple API-based reporting needs                                                          |                                                      Larger clusters / Detailed UI                                                      |
+| Price              |                                                                                 Free                                                                                |                                                                   Free                                                                  |
+| Clusters supported |                                                               Unlimited (best for smaller node-counts)                                                              |                                                      Single cluster-at-a-time view                                                      |
+| Number of nodes    |                                                                              Unlimited                                                                              |                                                                Unlimited                                                                |
+| Deployment         |                                  Deployed as a pod. Prometheus and kube-state-metrics dependencies  need to be managed separately.                                  |                                   Deployed using Helm. Turn-key solution with Prometheus and Grafana.                                   |
+| Metric retention   |                                                                  Limited by Prometheus environment                                                                  |                                                                 15 days                                                                 |
+| Support            | Built and supported by community users. Interact with our vibrant community to quickly and easily learn, build, and deploy OpenCost for Kubernetes cost monitoring! |               Ticket-based support dedicated to resolving issues quickly and efficiently. Available 9:00 AM - 8:00 PM EST               |
 
 Learn more about the different Kubecost versions and get started [here](https://www.kubecost.com/pricing/).
 
