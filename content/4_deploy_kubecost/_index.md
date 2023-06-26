@@ -6,6 +6,6 @@ weight: 40
 
 # Kubecost
 
-## Learning Objectives <!-- MODIFY THIS SUBHEADING -->
+## Learning Objectives
 
-In this section, you will learn how to deploy Kubecost on an existing cluster and expose it with a load balancer for easy access
+In this section, you will learn how to deploy Kubecost on an existing cluster and expose it with a load balancer for easy access.

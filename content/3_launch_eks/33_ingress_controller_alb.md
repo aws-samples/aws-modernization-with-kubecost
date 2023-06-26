@@ -10,7 +10,6 @@ weight: 33
 Learn more about [Application load balancing on Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) in the Amazon EKS documentation.
 {{% /notice %}}
 
-
 #### Prerequisites
 
 We will first set our cluster name in an environment variable:
@@ -47,7 +46,7 @@ helm version --short
 ```
 
 {{% notice info %}}
-If `Helm` is not found, click [installing Helm CLI](/2_setup/24_k8stools) for instructions.
+If `helm` is not found, see [here](/2_setup/24_clistools.html#install-the-helm-cli) for installation instructions.
 {{% /notice %}}
 
 #### Create IAM OIDC provider
@@ -96,7 +95,7 @@ kubectl get crd
 
 #### Deploy the Helm chart
 
-The helm chart will deploy from the eks repo
+The Helm chart will be deployed from the EKS repo.
 
 ```bash
 helm repo add eks https://aws.github.io/eks-charts

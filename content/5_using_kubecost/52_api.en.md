@@ -11,13 +11,13 @@ Kubecost offers a number of API endpoints to query cost metrics data. The Kubeco
 ### Prerequisites
 
 - You have completed Modules 1 & 2 of this workshop
-- You have an API client installed, such as [Insomnia](https://insomnia.rest/), [Postman](https://www.postman.com/), or a CLI utility such as [HTTPie](https://httpie.io/cli) or [cURL](https://curl.se/).
+- You have an API client installed such as [Insomnia](https://insomnia.rest/), [Postman](https://www.postman.com/), or a CLI utility such as [HTTPie](https://httpie.io/cli) or [cURL](https://curl.se/).
 
 ### Step 1: Enable access to the Kubecost API
 
-The Kubecost API can be queried using the `<KUBECOST_IP>:9090/model/` prefix. In order to do this, you'll either need to expose Kubecost locally, or via Amazon Loadbalancer Controller (ALB). Full steps for both are described in Module 2 of this lab.
+The Kubecost API can be queried using the `<KUBECOST_IP>:9090/model/` prefix. In order to do this, you'll either need to expose Kubecost locally, or via an AWS Application Load Balancer (ALB). Full steps for both are described in the [Deploying and Accessing Kubecost](/4_deploy_kubecost.html) module of this lab.
 
-For the sake of simplicity, we'll access the API from a `curl` pod by running following command in your AWS Cloud 9 environment terminal:
+For the sake of simplicity, we'll access the API from a `curl` pod by running following command in our AWS Cloud9 environment terminal:
 
 ```bash
 kubectl run curlpod --image=curlimages/curl -i --tty -- sh
@@ -28,11 +28,11 @@ ENDPOINT="http://kubecost-cost-analyzer.kubecost.svc.cluster.local:9090"
 
 Here are some examples of data available in the Free Tier of the API:
 
-#### [`/allocation`](https://github.com/kubecost/docs/blob/main/allocation.md)
+#### [`/allocation`](https://docs.kubecost.com/apis/apis-overview/allocation)
 
 The Kubecost Allocation API is used by the Kubecost Allocation frontend and retrieves cost allocation information for any Kubernetes concept, e.g. cost by namespace, label, deployment, service, and more. This API is directly integrated with the Kubecost ETL caching layer and CSV pipeline so it can scale to large clusters.
 
-**Example 1**: Request allocation data for each 24-hour period in the last three days, aggregated by namespace by running following command in your AWS Cloud 9 environment terminal:
+**Example 1**: Request allocation data for each 24-hour period in the last three days, aggregated by namespace by running following command in your AWS Cloud9 environment terminal:
 
 ```bash
 curl $ENDPOINT/model/allocation \
@@ -42,11 +42,12 @@ curl $ENDPOINT/model/allocation \
   -d shareIdle=false \
   -G
 ```
+
 Note: querying for "3d" will likely return a range of four sets because the queried range will overlap with four precomputed 24-hour sets, each aligned to the configured timezone.
 
 **Example 2**:
 
-Allocation data for the last 1 day, multi-aggregated by namespace and deployment, and accumulated into one allocation for the entire window.
+Allocation data for the last one day, multi-aggregated by namespace and deployment, and accumulated into one allocation for the entire window.
 
 ```bash
 curl $ENDPOINT/model/allocation \
@@ -56,21 +57,21 @@ curl $ENDPOINT/model/allocation \
   -G
 ```
 
-#### [`/assets`](https://github.com/kubecost/docs/blob/main/assets.md)
+#### [`/assets`](https://docs.kubecost.com/apis/apis-overview/assets-api)
 
 Assets API retrieves the backing cost data broken down by individual assets, e.g. node, disk, etc, and provides various aggregations of this data. Optionally provides the ability to integrate with external cloud assets.
 
 API parameters include the following:
 
-* `window` dictates the applicable window for measuring historical asset cost. Currently, supported options are as follows:
-    - "15m", "24h", "7d", "48h", etc. 
-    - "today", "yesterday", "week", "month", "lastweek", "lastmonth"
-    - "1586822400,1586908800", etc. (start and end unix timestamps)
-    - "2020-04-01T00:00:00Z,2020-04-03T00:00:00Z", etc. (start and end UTC RFC3339 pairs)
-* `aggregate` is used to consolidate cost model data. Supported aggregation types are cluster and type. Passing an empty value for this parameter, or not passing one at all, returns data by an individual asset.
-* `accumulate` when set to false this endpoint returns daily time series data vs cumulative data. Default value is false.
-* `disableAdjustments` when set to true, zeros out all adjustments from cloud provider reconciliation, which would otherwise change the totalCost.
-* `format` when set to `csv`, will download an accumulated version of the asset results in CSV format. By default, results will be in JSON format.
+- `window` dictates the applicable window for measuring historical asset cost. Currently, supported options are as follows:
+  - "15m", "24h", "7d", "48h", etc.
+  - "today", "yesterday", "week", "month", "lastweek", "lastmonth"
+  - "1586822400,1586908800", etc. (start and end unix timestamps)
+  - "2020-04-01T00:00:00Z,2020-04-03T00:00:00Z", etc. (start and end UTC RFC3339 pairs)
+- `aggregate` is used to consolidate cost model data. Supported aggregation types are cluster and type. Passing an empty value for this parameter, or not passing one at all, returns data by an individual asset.
+- `accumulate` when set to false this endpoint returns daily time series data vs cumulative data. Default value is false.
+- `disableAdjustments` when set to true, zeros out all adjustments from cloud provider reconciliation, which would otherwise change the totalCost.
+- `format` when set to `csv`, will download an accumulated version of the asset results in CSV format. By default, results will be in JSON format.
 
 This API returns a set of JSON objects in this format of following example:
 
@@ -86,7 +87,7 @@ curl $ENDPOINT/model/assets \
 
 Example results:
 
-```
+```json
 {
   "code": 200,
   "data": [

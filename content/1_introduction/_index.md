@@ -38,8 +38,6 @@ OpenCost API:
 
 Learn more about the different Kubecost versions and get started [here](https://www.kubecost.com/pricing/).
 
-**Adobe User Story** - What is the value of OpenCost vs Kubecost?
-
 # Kubecost architecture diagram
 
 ![kubecost-arch](/images/kubecost-arch.png)

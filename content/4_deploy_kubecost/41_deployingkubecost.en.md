@@ -4,7 +4,9 @@ weight : 41
 ---
 
 ### Overview
+
 Kubecost provides real-time cost visibility and insights for teams using Kubernetes, helping you continuously monitor the cost of the container workloads. In this section, you will learn how to deploy Kubecost on Amazon EKS cluster in few minutes with bundled Prometheus running locally.
+
 ### Reference Architecture diagram:
 
 ![kubecost-eks](/images/AWS-EKS-cost-monitoring-architecture.png)
@@ -23,7 +25,8 @@ oci://public.ecr.aws/kubecost/cost-analyzer --version="$VERSION" \
 -f https://raw.githubusercontent.com/kubecost/cost-analyzer-helm-chart/develop/cost-analyzer/values-eks-cost-monitoring.yaml \
 --set prometheus.configmapReload.prometheus.enabled="false"
 ```
-> **Note**: Remember to replace $VERSION with actual version number. You can find all available versions at https://gallery.ecr.aws/kubecost/cost-analyzer
+
+> **Note**: Remember to replace $VERSION with actual version number. You can find all available versions at [here](https://gallery.ecr.aws/kubecost/cost-analyzer).
 
 Kubecost should be up and running in few minutes. You can verify the installation progress using the following command:
 
@@ -55,7 +58,7 @@ On your workspace console, navigate to `Preview -> Preview running application`.
 
 ![kubecost-ui-workspace](/images/kubecost-expose-ui-workspace.png)
 
-You can now start monitoring your Amazon EKS cluster cost and efficiency. Depending on your organization’s requirements and set up, you may have different options to expose Kubecost for internal access. You will learn about how to expose Kubecost using Amazon Load Balancer Controller in the next module of this workshop.
+You can now start monitoring your Amazon EKS cluster cost and efficiency. Depending on your organization's requirements and set up, you may have different options to expose Kubecost for internal access. You will learn about how to expose Kubecost using an AWS Application Load Balancer in the next module of this workshop.
 
 Example Kubecost's overview page:
 
