@@ -87,7 +87,7 @@ url = "https://www.youtube.com/watch?v=-mDPV1huzBY"
 weight = 23
 
 [markup]
-  defaultMarkdownHandler = "blackfriday"
+  defaultMarkdownHandler = "goldmark"
   [markup.goldmark]
     hrefTargetBlank = true
 
