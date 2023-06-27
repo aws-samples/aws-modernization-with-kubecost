@@ -177,7 +177,7 @@ Inspect the report to see the detailed results.
 kubectl get policyreport cpol-require-kubecost-labels -o yaml
 ```
 
-The full policy report is shown with contents similar to what is below.
+The full policy report is shown with contents similar to the following example result.
 
 ```yaml
 apiVersion: wgpolicyk8s.io/v1alpha2
