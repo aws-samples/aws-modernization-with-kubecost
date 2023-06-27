@@ -9,7 +9,7 @@ Remove the components installed during this workshop:
 1. Kubecost
 
 ```bash
-helm delete kubecost -n kubecost
+helm uninstall kubecost -n kubecost
 ```
 
 2. AWS Load Balancer Controller
@@ -30,4 +30,10 @@ aws iam delete-policy --policy-arn arn:aws:iam::${ACCOUNT_ID}:policy/AWSLoadBala
 eksctl delete addon --name aws-ebs-csi-driver --cluster $CLUSTER_NAME
 
 eksctl delete iamserviceaccount --cluster $CLUSTER_NAME --name ebs-csi-controller-sa --namespace kube-system
+```
+
+4. Kyverno
+
+```bash
+helm uninstall kyverno kyverno/kyverno -n kyverno
 ```
