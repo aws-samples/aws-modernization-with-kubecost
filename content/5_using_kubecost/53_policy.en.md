@@ -50,15 +50,26 @@ As mentioned in the [use cases section](/5_using_kubecost/51_usecases.html), Kub
 
 > Note: Kubecost allows for customization of these labels, but in this workshop we will use the defaults.
 
-In order to guarantee this label assignment, we will use Kyverno to require that Pods have the `department` label by using the below policy. Inspect the policy and read the comments to understand what each portion does.
+In order to guarantee this label assignment, we will use Kyverno to require that Pods have the `department` label by using the below policy.
+
+Prior to installation of the policy, however, let's first run one simple Pod which does not have the required label so we may see how Kyverno responds in a later step.
+
+Create the following busybox Pod in your cluster and, afterwards, ensure it is present and in a running state.
+
+```sh
+kubectl run busybox --image busybox:latest -- sleep 1d
+```
+
+Now, inspect the policy and read the comments to understand what each portion does. When complete, copy-and-paste the code block to create the policy.
 
 ```yaml
+kubectl create -f- << EOF
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy                        ### A ClusterPolicy operates across the entire cluster.
 metadata:
   name: require-kubecost-labels            ### The policy name. A policy is a collection of rules.
 spec:
-  validationFailureAction: Enforce         ### The `Enforce` action means resources which are in violation will not be created.
+  validationFailureAction: Enforce         ### The Enforce action means resources which are in violation will not be created.
   background: true                         ### Background mode means Kyverno will periodically scan the cluster to check for violations.
   rules:
   - name: require-labels                   ### The rule name. A policy may contain many rules where each rule is of a certain type.
@@ -67,30 +78,15 @@ spec:
       - resources:
           kinds:
           - Pod                            ### This rule matches on the Pod resource kind.
-    validate:                              ### This is a `validate` rule meaning Kyverno will deliver a "yes" or "no" response.
+    validate:                              ### This is a validate rule meaning Kyverno will deliver a "yes" or "no" response.
       message: >-                          ### This message will be returned for Pods which violate the rule.
-        "The Kubecost label `department`
+        "The Kubecost label 'department'
         is required for Pods."
-      pattern:                             ### The `pattern` field is a portion of the resource which should be matched.
+      pattern:                             ### The pattern field is a portion of the resource which should be matched.
         metadata:
           labels:
-            department: "?*"               ### The `department` label is required to have some value, denoted by the `?*` value.
-```
-
-Create a YAML manifest named `kubecost-labels.yaml` and copy-and-paste the above policy into the file.
-
-Prior to installation of the policy, let's first run one simple Pod which does not have the required label so we may see how Kyverno responds in a later step.
-
-Create the following busybox Pod in your cluster and, afterwards, ensure it is present and in a running state.
-
-```sh
-kubectl run busybox --image busybox:latest -- sleep 1d
-```
-
-Now, install the policy.
-
-```sh
-kubectl create -f kubecost-labels.yaml
+            department: "?*"               ### The department label is required to have some value, denoted by the "?*" value.
+EOF
 ```
 
 After the policy is created, check its status.
