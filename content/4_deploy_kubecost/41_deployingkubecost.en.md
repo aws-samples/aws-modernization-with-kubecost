@@ -8,7 +8,7 @@ weight: 41
 
 Kubecost provides real-time cost visibility and insights for teams using Kubernetes, helping you continuously monitor the cost of the container workloads. In this section, you will learn how to deploy Kubecost on Amazon EKS cluster in few minutes with bundled Prometheus running locally.
 
-### Reference Architecture diagram:
+### Reference Architecture
 
 ![kubecost-eks](/images/AWS-EKS-cost-monitoring-architecture.png)
 
@@ -27,15 +27,15 @@ oci://public.ecr.aws/kubecost/cost-analyzer --version="$VERSION" \
 --set prometheus.configmapReload.prometheus.enabled="false"
 ```
 
-> **Note**: Remember to replace $VERSION with actual version number. You can find all available versions at [here](https://gallery.ecr.aws/kubecost/cost-analyzer).
+> **Note**: Remember to replace $VERSION with an actual version number. You can find all available versions [here](https://gallery.ecr.aws/kubecost/cost-analyzer).
 
-Kubecost should be up and running in few minutes. You can verify the installation progress using the following command:
+Kubecost should be up and running in a few minutes. You can verify the installation progress using the following command:
 
 ```bash
 kubectl get pod -n kubecost
 ```
 
-Example response with all pods in running state:
+Example response with all pods in a running state:
 
 ```bash
 kubectl get pod -n kubecost

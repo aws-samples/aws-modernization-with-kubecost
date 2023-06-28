@@ -14,7 +14,7 @@ In this module you will learn how to expose Kubecost for external access using t
 
 In this module, the Kubecost is exposed via a Kubernetes ingress and an AWS Application Load Balancer.
 
-### Reference Architecture diagram:
+### Reference Architecture
 
 ![kubecost-aws-alb](/images/kubecost-aws-alb.png)
 
@@ -47,7 +47,7 @@ EOF
 (export NAMESPACE=kubecost && kubectl apply -n $NAMESPACE -f -)
 ```
 
-After few seconds, an AWS ALB is created. You can run the following command to get the DNS name for accessing the Kubecost user interface (UI):
+After a few seconds, an AWS ALB is created. You can run the following command to get the DNS name for accessing the Kubecost user interface (UI):
 
 ```bash
 export ENDPOINT=$(kubectl get ingress kubecost-alb-ingress -n kubecost --output jsonpath='{.status.loadBalancer.ingress[0].hostname}')
@@ -60,7 +60,7 @@ Example result:
 Kubecost UI DNS name: k8s-kubecost-kubecost-xxxxxxxxxx-xxxxxxxxxx.us-west-2.elb.amazonaws.com
 ```
 
-On your web browser, navigate to ${ENDPOINT} to access the dashboard.
+In your web browser, navigate to ${ENDPOINT} to access the dashboard.
 
 > Note: In some cases, you may need to wait for a few minutes before accessing the Kubecost UI to allow AWS to complete the provisioning process of the ALB.
 
