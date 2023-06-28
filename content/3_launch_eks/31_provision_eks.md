@@ -46,7 +46,7 @@ kind: ClusterConfig
 metadata:
   name: kubecost-workshop-eksctl
   region: ${AWS_REGION}
-  version: "1.22"
+  version: "1.23"
 availabilityZones: ["${AZS[0]}", "${AZS[1]}", "${AZS[2]}"]
 managedNodeGroups:
 - name: nodegroup
