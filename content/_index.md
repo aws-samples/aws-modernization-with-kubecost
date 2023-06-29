@@ -16,13 +16,13 @@ You will also learn how to access the same information using the Kubecost APIs a
 
 ## Learning Objectives
 
-In this workshop we will cover what Kubecost is, how to deploy it on an EKS cluster and how to use Kubecost to monitor and optimize cluster spending. Estimated time for completing the workshop is 1-1.5 hours. 
+In this workshop we will cover what Kubecost is, how to deploy it on an EKS cluster and how to use Kubecost to monitor and optimize cluster spending. Estimated time for completing the workshop is 1-1.5 hours.
 
-## Who should take this workshop? 
+## Who should take this workshop?
 
 * Infrastructure Engineers
 * DevOps Engineers
-* Solutions Architects 
+* Solutions Architects
 * Software Developers
 * Site Reliability Engineers (SREs)
 * Technical leads

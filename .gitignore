@@ -2,3 +2,4 @@
 *.lock
 *.yaml
 *.sh
+settings.json

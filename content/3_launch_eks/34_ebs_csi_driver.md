@@ -27,7 +27,7 @@ export SERVICE_ACCOUNT_ROLE_ARN=$(aws iam get-role --role-name AmazonEKS_EBS_CSI
 
 #### Deploy the Amazon EBS CSI Driver using Amazon EKS-addon
 
-The Amazon EBS CSI Driver will deploy from the Amazon EKS-Addon
+The Amazon EBS CSI driver will be deployed as an EKS addon.
 
 ```bash
 eksctl create addon --name aws-ebs-csi-driver --cluster $CLUSTER_NAME \

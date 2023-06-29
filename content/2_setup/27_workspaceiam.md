@@ -5,12 +5,10 @@ weight: 27
 ---
 
 {{% notice info %}}
-Cloud9 normally manages IAM credentials dynamically. This isn't currently compatible with
-the EKS IAM authentication, so we will disable it and rely on the IAM role instead.
+Cloud9 normally manages IAM credentials dynamically. This isn't currently compatible with the EKS IAM authentication, so we will disable it and rely on the IAM role instead.
 {{% /notice %}}
 
-To ensure temporary credentials aren't already in place we will remove
-any existing credentials file as well as disabling **AWS managed temporary credentials**:
+To ensure temporary credentials aren't already in place we will remove any existing credentials file as well as disabling **AWS managed temporary credentials**:
 
 ```sh
 aws cloud9 update-environment  --environment-id $C9_PID --managed-credentials-action DISABLE
@@ -27,7 +25,6 @@ If you are [at an AWS event](/2_setup/22_aws_event/), ask your instructor which 
 export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account)
 export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region')
 export AZS=($(aws ec2 describe-availability-zones --query 'AvailabilityZones[].ZoneName' --output text --region $AWS_REGION))
-
 ```
 
 Check if AWS_REGION is set to desired region
@@ -36,7 +33,7 @@ Check if AWS_REGION is set to desired region
 test -n "$AWS_REGION" && echo AWS_REGION is "$AWS_REGION" || echo AWS_REGION is not set
 ```
 
- Let's save these into bash_profile
+Let's save these into bash_profile
 
 ```sh
 echo "export ACCOUNT_ID=${ACCOUNT_ID}" | tee -a ~/.bash_profile

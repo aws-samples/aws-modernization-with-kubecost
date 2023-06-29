@@ -5,19 +5,16 @@ weight: 23
 ---
 
 {{% notice warning %}}
-The Cloud9 workspace should be built by an IAM user with Administrator privileges,
-not the root account user. Please ensure you are logged in as an IAM user, not the root
-account user.
+The Cloud9 workspace should be built by an IAM user with Administrator privileges, not the root account user. Please ensure you are logged in as an IAM user, not the root account user.
 {{% /notice %}}
 
 {{% notice warning %}}
-If you are at an AWS Hosted Event the Cloud 9 Environment is already built for you. Just open the existing IDE in the Cloud9 console.
+If you are at an AWS Hosted Event the Cloud9 Environment is already built for you. Just open the existing IDE in the Cloud9 console.
 {{% /notice %}}
 
 {{% notice info %}}
 A list of supported browsers for AWS Cloud9 is found [here]( https://docs.aws.amazon.com/cloud9/latest/user-guide/browsers.html).
 {{% /notice %}}
-
 
 <!---
 {{% notice info %}}
@@ -28,9 +25,7 @@ and this message will be removed.
 -->
 
 {{% notice tip %}}
-Ad blockers, javascript disablers, and tracking blockers should be disabled for
-the cloud9 domain, or connecting to the workspace might be impacted.
-Cloud9 requires third-party-cookies. You can whitelist the [specific domains]( https://docs.aws.amazon.com/cloud9/latest/user-guide/troubleshooting.html#troubleshooting-env-loading).
+Ad blockers, javascript disablers, and tracking blockers should be disabled for the cloud9 domain, or connecting to the workspace might be impacted. Cloud9 requires third-party-cookies. You can whitelist the [specific domains]( https://docs.aws.amazon.com/cloud9/latest/user-guide/troubleshooting.html#troubleshooting-env-loading).
 {{% /notice %}}
 
 ### Launch Cloud9 in your closest region:
@@ -90,5 +85,4 @@ except ClientError as e:
 if [ $? -eq 0 ]; then
     sudo reboot
 fi
-
 ```

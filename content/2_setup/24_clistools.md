@@ -8,9 +8,7 @@ Amazon EKS clusters require kubectl and kubelet binaries and the aws-cli or aws-
 binary to allow IAM authentication for your Kubernetes cluster.
 
 {{% notice tip %}}
-In this workshop we will give you the commands to download the Linux
-binaries. If you are running Mac OSX / Windows, please [see the official EKS docs
-for the download links.](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html)
+In this workshop we will give you the commands to download the Linux binaries. If you are running Mac OSX / Windows, please [see the official EKS docs for the download links.](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html)
 {{% /notice %}}
 
 #### Install kubectl
@@ -32,7 +30,7 @@ unzip awscliv2.zip
 sudo ./aws/install
 ```
 
-#### Install eksctl 
+#### Install eksctl
 
 [eksctl](https://eksctl.io/) is a tool that automates much of the experience of creating EKS clusters.:
 
@@ -88,6 +86,7 @@ echo 'export LBC_VERSION="v2.4.1"' >>  ~/.bash_profile
 echo 'export LBC_CHART_VERSION="1.4.1"' >>  ~/.bash_profile
 .  ~/.bash_profile
 ```
+
 #### Install the Helm CLI
 
 ```sh
