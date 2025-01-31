@@ -1,11 +1,10 @@
 baseURL = "/"
 languageCode = "en-US"
 defaultContentLanguage = "en"
-
 title = "AWS Kubecost Workshop"
 theme = "hugo-theme-learn"
 metaDataFormat = "yaml"
-defaultContentLanguageInSubdir = "false"
+defaultContentLanguageInSubdir= "false"
 uglyurls = "true"
 enableEmoji = true
 
@@ -29,8 +28,6 @@ enableEmoji = true
   disableInlineCopyToClipBoard = false
   # A title for shortcuts in menu is set by default. Set this to true to disable it. 
   disableShortcutsTitle = false
-  # Disable home button
-  disableLandingPageButton = true
   # When using mulitlingual website, disable the switch language button.
   disableLanguageSwitchingButton = true
   # Hide breadcrumbs in the header and only show the current page title
@@ -41,9 +38,24 @@ enableEmoji = true
   ordersectionsby = "weight"
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = "mine"
+  # Add this line to ignore HTML warnings
+  ignoreLogs = ['warning-goldmark-raw-html']
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[Languages]
+[Languages.en]
+title = "English"
+weight = 1
+languageName = "English"
+
 
 [[menu.shortcuts]] 
 name = "<i class='fas fa-graduation-cap'></i> Modernization Workshops"
@@ -53,7 +65,7 @@ weight = 10
 [[menu.shortcuts]]
 name = "<i class='fas fa-tools'></i> AWS Builders Library"
 url = "https://aws.amazon.com/builders-library/"
-weight = 15
+weight = 11
 
 [[menu.shortcuts]]
 name = "<i class='far fa-lightbulb'></i> Modernization with AWS"
@@ -63,40 +75,14 @@ weight = 20
 [[menu.shortcuts]]
 name = "<i class='fas fa-chalkboard-teacher'></i> EKS Workshop"
 url = "https://eksworkshop.com/"
-weight = 25
+weight = 21
 
 [[menu.shortcuts]]
-name = "<i class='fas fa-chalkboard-teacher'></i> AWS Cloud billing integration"
-url = "https://docs.kubecost.com/install-and-configure/install/cloud-integration/aws-cloud-integrations"
-weight = 26
+name = "<i class='fas fa-chalkboard-teacher'></i> ECS Workshop"
+url = "https://ecsworkshop.com/"
+weight = 22
 
 [[menu.shortcuts]]
-name = "<i class='fas fa-chalkboard-teacher'></i> Containers from the Couch episode - EKS Cost Monitoring with Kubecost"
-url = "https://www.youtube.com/watch?v=-mDPV1huzBY"
-weight = 27
-
-[[menu.shortcuts]]
-name = "<i class='fas fa-chalkboard-teacher'></i> Kubecost documentation for Amazon EKS"
-url = "https://docs.kubecost.com/install-and-configure/install/provider-installations/aws-eks-cost-monitoring"
-weight = 28
-
-[[menu.shortcuts]]
-name = "<i class='fas fa-chalkboard-teacher'></i> Learn more about Kubecost and AWS collaboration"
-url = "https://www.kubecost.com/aws-eks-cost-monitoring/"
-weight = 29
-
-[[menu.shortcuts]]
-name = "<i class='fas fa-tools'></i> Kyverno policies for Kubecost"
-url = "https://kyverno.io/policies/?policytypes=Kubecost"
-weight = 30
-
-[markup]
-  defaultMarkdownHandler = "goldmark"
-  [markup.goldmark]
-    hrefTargetBlank = true
-
-[deployment]
-# By default, files are uploaded in an arbitrary order.
-# Files that match the regular expressions in the "Order" list
-# will be uploaded first, in the listed order.
-order = [".jpg$", ".gif$"]
+name = "<i class='fas fa-chalkboard-teacher'></i> App Mesh Workshop"
+url = "https://www.appmeshworkshop.com/"
+weight = 23
