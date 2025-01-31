@@ -1,11 +1,11 @@
 baseURL = "/"
 languageCode = "en-US"
-defaultContentLanguage = "en" 
+defaultContentLanguage = "en"
 
 title = "AWS Kubecost Workshop"
 theme = "hugo-theme-learn"
 metaDataFormat = "yaml"
-defaultContentLanguageInSubdir= "false"
+defaultContentLanguageInSubdir = "false"
 uglyurls = "true"
 enableEmoji = true
 
@@ -41,7 +41,6 @@ enableEmoji = true
   ordersectionsby = "weight"
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = "mine"
-
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
@@ -91,7 +90,6 @@ name = "<i class='fas fa-tools'></i> Kyverno policies for Kubecost"
 url = "https://kyverno.io/policies/?policytypes=Kubecost"
 weight = 30
 
-
 [markup]
   defaultMarkdownHandler = "goldmark"
   [markup.goldmark]
@@ -102,9 +100,3 @@ weight = 30
 # Files that match the regular expressions in the "Order" list
 # will be uploaded first, in the listed order.
 order = [".jpg$", ".gif$"]
-
-[Languages] # Modify to change the language/version settings and/or version secondary extensions
-[Languages.en]
-title = "English"
-weight = 1
-languageName = "English"
